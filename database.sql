@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     password VARCHAR(255) NOT NULL,
     empresa_id INT NOT NULL,
     rol_id INT NOT NULL,
+    activo BOOLEAN DEFAULT 1,
     FOREIGN KEY (empresa_id) REFERENCES empresas(id),
     FOREIGN KEY (rol_id) REFERENCES roles(id)
 );

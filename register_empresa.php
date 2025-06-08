@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="style.css">
 <head><title>Registrar Empresa</title></head>
 <body>
 <h2>Registrar Empresa</h2>

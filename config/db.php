@@ -2,8 +2,8 @@
 // Cambia estos datos a los de tu servidor MySQL
 $host = 'localhost';
 $db   = 'inventario_facturacion';
-$user = 'root';
-$pass = '';
+$db_user = 'root';
+$db_pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -14,8 +14,7 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($dsn, $db_user, $db_pass, $options);
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
-?>

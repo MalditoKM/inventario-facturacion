@@ -2,7 +2,7 @@
 session_start();
 require 'config/db.php';
 
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['user']) && is_array($_SESSION['user'])) {
     header('Location: menu.php');
     exit;
 }
@@ -45,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Iniciar Sesión - Inventario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             background: #f8f9fa;

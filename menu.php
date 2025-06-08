@@ -1,6 +1,14 @@
 <?php
 session_start();
-if (!isset($_SESSION['user'])) header('Location: login.php');
+
+// Verificar si la sesión 'user' existe y si es un array
+if (!isset($_SESSION['user']) || !is_array($_SESSION['user'])) {
+    // Si no existe o no es un array válido, redirigir a la página de login
+    header('Location: login.php');
+    exit; // Importante salir después de la redirección
+}
+
+// Si la sesión es válida, asignar el usuario
 $user = $_SESSION['user'];
 
 // Ejemplo de notificaciones dinámicas
@@ -28,16 +36,7 @@ if (in_array($user['rol'], ['admin', 'superadmin', 'almacen', 'ventas'])) {
     <title>Menú principal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-    body { background: #f8f9fa; }
-    .sidebar { min-width: 230px; max-width: 230px; min-height: 100vh; background: #212529; color: #fff; }
-    .sidebar a { color: #fff; }
-    .sidebar .nav-link.active { background: #495057; }
-    .sidebar .bi { font-size: 1.2rem; }
-    .sidebar .badge { background: #ffc107; color: #212529; }
-    .sidebar .submenu { padding-left: 1.5rem; }
-    .sidebar-header { font-size: 1.3rem; font-weight: bold; padding: 1rem 1rem 0.5rem 1rem; }
-    </style>
+    
 </head>
 <body>
 <div class="d-flex">
